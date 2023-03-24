@@ -18,3 +18,4 @@ scenarios:
   - name: "Access Purchase page"
     engine: playwright
     flowFunction: loadPurchasePageFlow
+    flow: []
