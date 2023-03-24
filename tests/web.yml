@@ -1,0 +1,20 @@
+config:
+  target: "https://tructuyen.abic.com.vn"
+  phases:
+    - name: "20 users per second"
+      arrivalRate: 20
+      duration: 120
+    - name: "3000 user at the same time"
+      arrivalRate: 3000
+      duration: 1
+  engines:
+    playwright: {}
+  processor: ../flows/web.js
+scenarios:
+  - name: "Access home page"
+    engine: playwright
+    flowFunction: loadHomePageFlow
+    flow: []
+  - name: "Access Purchase page"
+    engine: playwright
+    flowFunction: loadPurchasePageFlow

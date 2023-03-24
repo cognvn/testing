@@ -1,0 +1,15 @@
+{
+  "name": "load-testing",
+  "packageManager": "yarn@3.5.0",
+  "type": "commonjs",
+  "scripts": {
+    "test": "artillery run tests/web.yml -o output/result.json -q"
+  },
+  "dependencies": {
+    "artillery": "^2.0.0-31",
+    "artillery-engine-playwright": "^0.2.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.32.0"
+  }
+}
