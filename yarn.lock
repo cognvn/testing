@@ -2132,6 +2132,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/k6@npm:^0.43.2":
+  version: 0.43.2
+  resolution: "@types/k6@npm:0.43.2"
+  checksum: 031ea8920da338384d9fbdbea9b430ea972a6068544b3f577951967a75ab160bdab23500bb7ed55c2990f177ecfda8c9b7edf5a218ce0bd8c28b4183dc01a4e3
+  languageName: node
+  linkType: hard
+
 "@types/keyv@npm:^3.1.4":
   version: 3.1.4
   resolution: "@types/keyv@npm:3.1.4"
@@ -4562,6 +4569,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "load-testing@workspace:."
   dependencies:
+    "@types/k6": ^0.43.2
     artillery: ^2.0.0-31
     artillery-engine-playwright: ^0.2.1
     playwright: ^1.32.0

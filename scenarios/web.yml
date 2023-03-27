@@ -1,0 +1,5 @@
+scenarios:
+  - name: "Purchase flow"
+    engine: playwright
+    flowFunction: purchaseFlow
+    flow: []

@@ -1,0 +1,12 @@
+config:
+  target: "https://tructuyen.abic.com.vn"
+  phases:
+    - name: "Single user"
+      arrivalRate: 1
+      duration: 5
+      maxVusers: 1
+  engines:
+    playwright:
+      launchOptions:
+        headless: true
+  processor: ./flows.js
