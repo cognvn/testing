@@ -4,15 +4,17 @@ stages:
 performance_test_stage:
   stage: performance_test
   image:
-    name: node:lts-alpine
+    name: mcr.microsoft.com/playwright:jammy
   before_script:
     - npm i
     - npm run build
   script:
     - mkdir output
-    - npx playwright install chrome
     - npx artillery run -c config.yml -o output/result.json scenarios/web.yml
     - npx artillery report --output output/result.html output/result.json
+  only:
+    - main
+    - master
   artifacts:
     paths:
       - output
