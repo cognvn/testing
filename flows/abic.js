@@ -14,11 +14,8 @@ function purchaseFlow(page, context) {
     return __awaiter(this, void 0, void 0, function* () {
         // Di chuyển đến trang mua sản phầm
         yield page.goto('https://tructuyen.abic.com.vn/');
-        yield page.waitForLoadState();
         yield page.getByText('Bắt buộc TNDS Xe máy').click();
-        yield page.waitForLoadState();
         yield page.getByRole('button', { name: 'Chọn mua' }).nth(1).click();
-        yield page.waitForLoadState();
         // Điền thông tin vào form
         yield page.getByLabel('Họ Tên Chủ Hợp Đồng').fill(context.vars.fullName);
         yield page.getByLabel('Số Điện Thoại').fill(context.vars.phoneNumber.replace(/^'/, ''));

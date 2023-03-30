@@ -1,9 +1,8 @@
 config:
   target: "https://tructuyen.abic.com.vn"
   phases:
-    - name: "Single user"
-      arrivalRate: 50
-      duration: 120
+    - arrivalRate: 5
+      duration: 20
   payload:
     path: ./data/users.csv
     fields:

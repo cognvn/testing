@@ -13,11 +13,8 @@ interface UserVars extends Record<string, string> {
 async function purchaseFlow(page: Page, context: ScenarioContext<UserVars>) {
   // Di chuyển đến trang mua sản phầm
   await page.goto('https://tructuyen.abic.com.vn/');
-  await page.waitForLoadState();
   await page.getByText('Bắt buộc TNDS Xe máy').click();
-  await page.waitForLoadState();
   await page.getByRole('button', { name: 'Chọn mua' }).nth(1).click();
-  await page.waitForLoadState();
 
   // Điền thông tin vào form
   await page.getByLabel('Họ Tên Chủ Hợp Đồng').fill(context.vars.fullName)

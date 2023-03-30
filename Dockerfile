@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/playwright:jammy
+
+RUN npm install -g artillery artillery-engine-playwright && \
+        npm cache clean --force && \
+        rm -rf /root/.cache && \
+        rm -rf /ms-playwright/firefox* && \
+        rm -rf /ms-playwright/webkit*
+
+ENTRYPOINT ["/usr/bin/artillery"]
