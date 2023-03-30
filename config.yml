@@ -2,11 +2,19 @@ config:
   target: "https://tructuyen.abic.com.vn"
   phases:
     - name: "Single user"
-      arrivalRate: 1
-      duration: 5
-      maxVusers: 1
+      arrivalRate: 50
+      duration: 120
+  payload:
+    path: ./data/users.csv
+    fields:
+      - fullName
+      - phoneNumber
+      - email
+      - city
+      - address
+      - licensePlates
   engines:
     playwright:
       launchOptions:
         headless: true
-  processor: ./flows.js
+  processor: ./flows/abic.js

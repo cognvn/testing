@@ -7,8 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,24 +17,22 @@ jobs:
   load-testing:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    container: node:lts-alpine
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-
-      - name: Install dependencies
-        run: yarn install
-
+      - name: Install dependencies & build
+        run: |
+          npm i
+          npm run build
       - name: Run load testing
         run: |
           mkdir output
-          yarn playwright install
-          yarn test
+          npx playwright install chrome
+          npx artillery run -c config.yml -o output/result.json scenarios/web.yml
+          npx artillery report --output output/result.html output/result.json
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3

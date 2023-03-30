@@ -1,7 +1,7 @@
 {
-  "name": "load-testing",
-  "packageManager": "yarn@3.5.0",
+  "name": "sm-load-testing",
   "scripts": {
+    "build": "tsc",
     "test": "artillery run -c config.yml -o output/result.json scenarios/web.yml"
   },
   "dependencies": {
@@ -9,7 +9,9 @@
     "artillery-engine-playwright": "^0.2.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.32.1",
+    "@types/artillery": "^1.7.0",
     "@types/k6": "^0.43.2",
-    "playwright": "^1.32.0"
+    "typescript": "^5.0.2"
   }
 }
